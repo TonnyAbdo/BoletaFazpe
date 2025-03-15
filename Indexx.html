@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleta Electrónica</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .boleta { width: 80%; margin: auto; padding: 20px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div class="boleta">
+        <h2>Boleta Electrónica</h2>
+        <p><strong>Pedido:</strong> <span id="boleta"></span></p>
+        <p><strong>Cliente:</strong> <span id="mesa"></span></p>
+        <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+        <p><strong>Total:</strong> S/. <span id="total"></span></p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("boleta").textContent = params.get("boleta") || "No definido";
+        document.getElementById("mesa").textContent = params.get("mesa") || "No definido";
+        document.getElementById("fecha").textContent = params.get("fecha") || "No definida";
+        document.getElementById("total").textContent = params.get("total") || "0.00";
+    </script>
+</body>
+</html>
